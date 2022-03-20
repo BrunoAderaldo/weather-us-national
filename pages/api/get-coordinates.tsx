@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Response>) => {
     const result = data.result.addressMatches;
 
     if (!result.length) {
-      res.status(200).json({ msg: "No address matches" });
+      return res.status(200).json({ msg: "No address matches" });
     }
 
     const { x, y } = result[0].coordinates;

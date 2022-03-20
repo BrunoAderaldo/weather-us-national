@@ -1,9 +1,11 @@
+const US_NWS_URL = "https://api.weather.gov/points";
+
 /**
  * Call an internal serverless function (avoid CORS error) to get the coordinates.
  * @param {String} address e.g: 4600 Silver Hill Rd, Washington, DC 20233
  * @returns {Object} e.g: { latitude: -76.92744, longitude: 38.845985 }
  */
-export const getCoordinates = async (address: string) => {
+const getCoordinates = async (address: string) => {
   const config = {
     method: "POST",
     body: JSON.stringify({ address }),
@@ -21,12 +23,45 @@ export const getCoordinates = async (address: string) => {
 };
 
 /**
- * TODO:
- * get forecast - https://api.weather.gov/points/{latitude},{longitude}
+ * Get forecast and periods.
+ * https://api.weather.gov/points/{latitude},{longitude}
+ * @param {String} address e.g: 4600 Silver Hill Rd, Washington, DC 20233
+ * @returns {Array} with periods
  */
-
-export const getForecast = async () => {
+export const getForecast = async (address: string) => {
   try {
+    const { latitude, longitude } = await getCoordinates(address);
+
+    // TODO: remove test data
+    // const testLatitude = "39.7456";
+    // const testLongitude = "-97.0892";
+    const url = `${US_NWS_URL}/${latitude},${longitude}`;
+
+    const response = await fetch(url).then((res) => res.json());
+
+    if (response.status === 404) {
+      return {
+        status: 404,
+        title: response.title,
+        detail: response.detail,
+      };
+    }
+
+    const forecast = response.properties.forecast;
+
+    if (!forecast)
+      return {
+        status: 404,
+        title: "No forecast title",
+        detail: "Mo forecast detail",
+      };
+
+    const data = await fetch(forecast).then((res) => res.json());
+
+    return {
+      status: 200,
+      periods: data.properties?.periods,
+    };
   } catch (error) {
     console.log(error);
   }
