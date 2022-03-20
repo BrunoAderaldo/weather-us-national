@@ -33,9 +33,9 @@ export const getForecast = async (address: string) => {
     const { latitude, longitude } = await getCoordinates(address);
 
     // TODO: remove test data
-    // const testLatitude = "39.7456";
-    // const testLongitude = "-97.0892";
-    const url = `${US_NWS_URL}/${latitude},${longitude}`;
+    const testLatitude = "39.7456";
+    const testLongitude = "-97.0892";
+    const url = `${US_NWS_URL}/${testLatitude},${testLongitude}`;
 
     const response = await fetch(url).then((res) => res.json());
 

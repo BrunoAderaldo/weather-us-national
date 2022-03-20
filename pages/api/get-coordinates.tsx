@@ -16,9 +16,11 @@ type Response = {
 export default async (req: NextApiRequest, res: NextApiResponse<Response>) => {
   const address = JSON.parse(req.body).address;
 
+  // TODO: remove log for Vercel
+  console.log(`----- ${address} -----`);
+
   if (!address) {
-    // TODO: check status code
-    res.status(400).json({ msg: "Missing address" });
+    return res.status(400).json({ msg: "Missing address" });
   }
 
   const url = `${BASE_URL}&address=${address}`;
