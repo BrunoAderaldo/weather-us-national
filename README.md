@@ -1,3 +1,7 @@
+## Design with Figma
+
+![image](https://user-images.githubusercontent.com/14007590/159153031-e2680845-bcbc-4dbc-9885-ba7b12fdad77.png)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
