@@ -39,18 +39,26 @@ export const {
       4: "12px",
       5: "14px",
       6: "16px",
-      7: "20px",
-      8: "24px",
+      7: "18px",
+      8: "20px",
+      9: "22px",
+      10: "24px",
+      11: "26px",
+      12: "28px",
+      13: "30px",
+      14: "36px",
     },
     fontWeights: {
-      light: "300",
       regular: "400",
       medium: "500",
       semiBold: "600",
       bold: "700",
     },
+    letterSpacings: {
+      default: "-1px",
+    },
     radii: {
-      borderRadius: "4px",
+      borderRadius: "6px",
     },
     // TODO: add shadow
     shadows: {
@@ -58,10 +66,11 @@ export const {
     },
   },
   media: {
-    bp1: "(min-width: 640px)",
-    bp2: "(min-width: 768px)",
-    bp3: "(min-width: 1024px)",
-    bp4: "(min-width: 1280px)",
+    bp1: "(min-width: 375px)",
+    bp2: "(min-width: 640px)",
+    bp3: "(min-width: 768px)",
+    bp4: "(min-width: 1024px)",
+    bp5: "(min-width: 1280px)",
   },
 });
 
@@ -74,7 +83,7 @@ const globalStyles = globalCss({
   "::placeholder, input": {
     color: "$placeholder",
     fontSize: "$5",
-    fontWeight: "$light",
+    fontWeight: "$regular",
   },
   "html, body": {
     margin: "0",
@@ -94,10 +103,9 @@ const globalStyles = globalCss({
     fontSize: "$7",
     fontWeight: "$bold",
     margin: "0 0 $5",
-  },
-  p: {
-    color: "$secondary",
-    margin: "20px 0",
+    "@bp1": {
+      fontSize: "$9",
+    },
   },
   strong: {
     color: "$accent",
@@ -105,7 +113,11 @@ const globalStyles = globalCss({
   },
   label: {
     display: "block",
+    fontSize: "$5",
     marginBottom: "$3",
+    "@bp1": {
+      fontSize: "$6",
+    },
   },
   input: {
     border: 0,
@@ -124,6 +136,9 @@ const globalStyles = globalCss({
       cursor: "not-allowed",
       opacity: "0.5",
     },
+  },
+  svg: {
+    fill: "$primary",
   },
   "@font-face": [
     {

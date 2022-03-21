@@ -1,12 +1,13 @@
 import { useState } from "react";
 import type { NextPage } from "next";
 
-import { getForecast } from "../src/services/getForecast";
 import DayBox from "../src/components/DayBox";
 import Container from "../src/components/Container";
 import Text from "../src/components/Text";
 import Button from "../src/components/Button";
 import Search from "../src/components/Search";
+
+import { getForecast } from "../src/services/getForecast";
 
 type JSONresponse = {
   status?: number;
@@ -84,12 +85,12 @@ const Home: NextPage = () => {
 
         {error && (
           <>
-            <span>{error.title}</span>
-            <span>{error.detail}</span>
+            <Text type="error">{error.title}</Text>
+            <Text type="error">{error.detail}</Text>
           </>
         )}
 
-        <div>
+        <Text css={{ marginBottom: "$6", display: "block" }}>
           Try
           <Button
             inline
@@ -98,7 +99,7 @@ const Home: NextPage = () => {
           >
             {FIXED_ADDRESS}
           </Button>
-        </div>
+        </Text>
       </div>
 
       <div>
