@@ -28,6 +28,7 @@ _Note: sometimes their API returns error._
 - [ ] Add tests;
 - [ ] See values in different units (Celsius, Km/h);
 - [ ] Save favorite locations;
+- [ ] Improve the interface for desktop
 - [ ] Show detailed forecast text;
 - [ ] Show hourly forecast;
 - [ ] Change to OpenWeather API;
