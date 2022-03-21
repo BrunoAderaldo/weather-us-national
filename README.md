@@ -25,6 +25,7 @@ _Note: sometimes their API returns error._
 
 ## TODO:
 
+- [ ] Add tests;
 - [ ] See values in different units (Celsius, Km/h);
 - [ ] Save favorite locations;
 - [ ] Show detailed forecast text;
