@@ -43,7 +43,8 @@ const getCoordinates = async (address: string) => {
  */
 export const getForecast = async (address: string) => {
   try {
-    const { longitude, latitude, msg } = await getCoordinates(address);
+    // TODO: remove type any
+    const { longitude, latitude, msg }: any = await getCoordinates(address);
 
     console.log("Address: ", address);
     console.log("Longitude - x: ", longitude);
