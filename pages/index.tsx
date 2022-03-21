@@ -63,10 +63,14 @@ const Home: NextPage = () => {
             id="search"
             onChange={handleAddress}
             value={address}
+            aria-label="Search input"
             placeholder="number street city state"
-            autoComplete="on"
           />
-          <Button onClick={handleClick} disabled={!address || isLoading}>
+          <Button
+            aria-label="Search button"
+            onClick={handleClick}
+            disabled={!address || isLoading}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

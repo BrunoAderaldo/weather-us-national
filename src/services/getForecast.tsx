@@ -46,14 +46,6 @@ export const getForecast = async (address: string) => {
     // TODO: remove type any
     const { longitude, latitude, msg }: any = await getCoordinates(address);
 
-    console.log("Address: ", address);
-    console.log("Longitude - x: ", longitude);
-    console.log("Latitude - y: ", latitude);
-
-    if (msg) {
-      console.log("Error: ", msg);
-    }
-
     if (msg) {
       return {
         status: 404,
@@ -64,8 +56,6 @@ export const getForecast = async (address: string) => {
     const url = `${US_NWS_URL}/${latitude},${longitude}`;
 
     const response = await fetch(url).then((res) => res.json());
-
-    console.log("Response", response);
 
     if (response.status === 404) {
       return {
