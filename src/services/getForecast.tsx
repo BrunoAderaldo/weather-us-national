@@ -3,7 +3,7 @@ const US_NWS_URL = "https://api.weather.gov/points";
 /**
  * Call an internal serverless function (avoid CORS error) to get the coordinates.
  * @param {String} address e.g: 4600 Silver Hill Rd, Washington, DC 20233
- * @returns {Object} e.g: { latitude: -76.92744, longitude: 38.845985 }
+ * @returns {Object} e.g: { longitude: 38.845985, latitude: -76.92744 }
  */
 const getCoordinates = async (address: string) => {
   const config = {
@@ -30,10 +30,15 @@ const getCoordinates = async (address: string) => {
  */
 export const getForecast = async (address: string) => {
   try {
-    const { latitude, longitude, msg } = await getCoordinates(address);
+    const { longitude, latitude, msg } = await getCoordinates(address);
 
     console.log("Address: ", address);
-    console.log("Coordinates/Error: ", latitude, longitude, msg);
+    console.log("Longitude - x: ", longitude);
+    console.log("Latitude - y: ", latitude);
+
+    if (msg) {
+      console.log("Error: ", msg);
+    }
 
     if (msg) {
       return {
@@ -41,10 +46,6 @@ export const getForecast = async (address: string) => {
         msg,
       };
     }
-
-    // I have to use this fixed data because the api returns error for other address
-    const testLatitude = "39.7456";
-    const testLongitude = "-97.0892";
 
     const url = `${US_NWS_URL}/${latitude},${longitude}`;
 

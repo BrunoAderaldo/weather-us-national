@@ -5,8 +5,8 @@ const BASE_URL =
 
 type Response = {
   msg?: string;
-  latitude?: number;
   longitude?: number;
+  latitude?: number;
   error?: Error;
 };
 
@@ -38,8 +38,8 @@ export default async (req: NextApiRequest, res: NextApiResponse<Response>) => {
     const { x, y } = result[0].coordinates;
 
     res.status(200).json({
-      latitude: x,
-      longitude: y,
+      longitude: x,
+      latitude: y,
     });
   } catch (error) {
     res.status(500).json({ error: error as Error });

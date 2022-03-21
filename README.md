@@ -4,10 +4,11 @@ Connects to public geocoding and weather REST APIs providing a specified address
 
 ## US Census Geocoding API
 
-Converts addresses into latitude and longitude:
+Converts addresses into longitude and latitude:
 https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.pdf
 
 ## US National Weather Service API:
+
 Converts the coordinates to forecast data
 https://www.weather.gov/documentation/services-web-api
 
