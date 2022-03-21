@@ -12,11 +12,24 @@ const getCoordinates = async (address: string) => {
   };
 
   try {
-    const data = await fetch("/api/get-coordinates", config)
+    const { longitude, latitude, msg } = await fetch(
+      "/api/get-coordinates",
+      config
+    )
       .then((res) => res.json())
       .then((data) => data);
 
-    return data;
+    if (!longitude || !longitude) {
+      return {
+        status: 404,
+        msg,
+      };
+    }
+
+    return {
+      longitude,
+      latitude,
+    };
   } catch (error) {
     console.log(error);
   }

@@ -20,12 +20,8 @@ type Forecast = {
   periods?: [];
 };
 
-const FIXED_ADDRESS = "701 BRAZOS ST, AUSTIN, TX";
-
 const Home: NextPage = () => {
-  const [address, setAddress] = useState(
-    "4600 Silver Hill Rd, Washington, DC 20233"
-  );
+  const [address, setAddress] = useState("701 BRAZOS ST, AUSTIN, TX");
   const [error, setError] = useState<JSONresponse>({});
   const [forecast, setForecast] = useState<Forecast>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -43,16 +39,13 @@ const Home: NextPage = () => {
 
     if (response.status !== 200) {
       setError(response);
+      return setIsLoading(false);
     }
 
     setForecast(response);
-
+    setError({});
+    setAddress("");
     setIsLoading(false);
-  };
-
-  const handleAddressTest = () => {
-    setAddress(FIXED_ADDRESS);
-    handleClick();
   };
 
   return (
@@ -71,6 +64,7 @@ const Home: NextPage = () => {
             onChange={handleAddress}
             value={address}
             placeholder="number street city state"
+            autoComplete="on"
           />
           <Button onClick={handleClick} disabled={!address || isLoading}>
             <svg
@@ -90,13 +84,6 @@ const Home: NextPage = () => {
             {error.msg}
           </Text>
         )}
-
-        <Text css={{ marginBottom: "$6", display: "block" }}>
-          Try
-          <Button inline onClick={handleAddressTest}>
-            {FIXED_ADDRESS}
-          </Button>
-        </Text>
       </div>
 
       <div>
