@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { NextPage } from "next";
+import Head from "next/head";
 
 import DayBox from "../src/components/DayBox";
 import Container from "../src/components/Container";
@@ -57,6 +58,9 @@ const Home: NextPage = () => {
 
   return (
     <Container>
+      <Head>
+        <title>Weather US App</title>
+      </Head>
       <Text as="h1">How's the weather today?</Text>
 
       <label htmlFor="search">Enter an address</label>
