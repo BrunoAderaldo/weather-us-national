@@ -24,10 +24,11 @@ _Note: sometimes their API returns error._
 
 ## TODO:
 
-- [ ] Change to OpenWeather API
-- [ ] Save favorite locations
-- [ ] Show detailed forecast
-- [ ] Show forecast for hours of the current day
+- [ ] See values in different units (Celsius, Km/h);
+- [ ] Save favorite locations;
+- [ ] Show detailed forecast text;
+- [ ] Show hourly forecast;
+- [ ] Change to OpenWeather API;
 
 ---
 
