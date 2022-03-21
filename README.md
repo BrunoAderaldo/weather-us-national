@@ -1,6 +1,35 @@
+# Weather US National App
+
+Connects to public geocoding and weather REST APIs providing a specified address for display the 7-day forecast.
+
+## US Census Geocoding API
+
+Converts addresses into latitude and longitude:
+https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.pdf
+
+## US National Weather Service API:
+Converts the coordinates to forecast data
+https://www.weather.gov/documentation/services-web-api
+
+_Note: sometimes their API returns error._
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Styling**: [Stitches](https://stitches.dev/)
+- **Icons**: [Remix Icon](http://remixicon.com/)
+
 ## Design with Figma
 
-![image](https://user-images.githubusercontent.com/14007590/159153031-e2680845-bcbc-4dbc-9885-ba7b12fdad77.png)
+![image](https://user-images.githubusercontent.com/14007590/159200158-422b1557-f237-4c01-a603-c8ead299b057.png)
+
+## TODO:
+
+- [ ] Change to OpenWeather API
+- [ ] Save favorite locations
+- [ ] Show detailed forecast
+- [ ] Show forecast for hours of the current day
+
+---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
