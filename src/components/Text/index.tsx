@@ -8,8 +8,13 @@ const Text = styled("span", {
   variants: {
     type: {
       error: {
-        fontSize: "$3",
+        fontSize: "$4",
+        fontWeight: "$medium",
+        color: "$error",
+        border: "1px solid $error",
+        borderRadius: "$borderRadius",
         marginBottom: "$5",
+        padding: "$1 $4",
       },
       icon: {
         color: "$accent",

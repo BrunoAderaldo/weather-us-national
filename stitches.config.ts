@@ -19,6 +19,7 @@ export const {
       placeholder: "#9D9EB6",
       separator: "#F7F8FC",
       accent: "#161763",
+      error: "#FF5252",
     },
     space: {
       1: "2px",
@@ -60,7 +61,6 @@ export const {
     radii: {
       borderRadius: "6px",
     },
-    // TODO: add shadow
     shadows: {
       default: "0px 4px 2px 0px rgb(0 0 0 / 3%)",
     },

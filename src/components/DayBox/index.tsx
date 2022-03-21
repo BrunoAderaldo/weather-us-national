@@ -7,7 +7,6 @@ type Day = {
   isDaytime: boolean;
   startTime: string;
   shortForecast: string;
-  detailedForecast: string;
   temperature: string;
   windSpeed: string;
   windDirection: string;
@@ -18,7 +17,6 @@ const DayBox = ({
   isDaytime,
   startTime,
   shortForecast,
-  // detailedForecast,
   temperature,
   windSpeed,
   windDirection,
@@ -95,8 +93,6 @@ const DayBox = ({
       </Box>
 
       <Text type="shortForecast">{shortForecast}</Text>
-      {/* TODO: see more details */}
-      {/* <div>{detailedForecast}</div> */}
     </Card>
   );
 };

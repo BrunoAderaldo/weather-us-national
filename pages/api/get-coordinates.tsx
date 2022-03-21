@@ -16,7 +16,7 @@ type Response = {
 export default async (req: NextApiRequest, res: NextApiResponse<Response>) => {
   const address = JSON.parse(req.body).address;
 
-  // TODO: remove log for Vercel
+  // Log for Vercel functions
   console.log(`----- ${address} -----`);
 
   if (!address) {

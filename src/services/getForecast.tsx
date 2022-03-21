@@ -30,30 +30,41 @@ const getCoordinates = async (address: string) => {
  */
 export const getForecast = async (address: string) => {
   try {
-    const { latitude, longitude } = await getCoordinates(address);
+    const { latitude, longitude, msg } = await getCoordinates(address);
 
-    // TODO: remove test data
+    console.log("Address: ", address);
+    console.log("Coordinates/Error: ", latitude, longitude, msg);
+
+    if (msg) {
+      return {
+        status: 404,
+        msg,
+      };
+    }
+
+    // I have to use this fixed data because the api returns error for other address
     const testLatitude = "39.7456";
     const testLongitude = "-97.0892";
-    const url = `${US_NWS_URL}/${testLatitude},${testLongitude}`;
+
+    const url = `${US_NWS_URL}/${latitude},${longitude}`;
 
     const response = await fetch(url).then((res) => res.json());
+
+    console.log("Response", response);
 
     if (response.status === 404) {
       return {
         status: 404,
-        title: response.title,
-        detail: response.detail,
+        msg: response.detail,
       };
     }
 
-    const forecast = response.properties.forecast;
+    const forecast = response.properties?.forecast;
 
     if (!forecast)
       return {
         status: 404,
-        title: "No forecast title",
-        detail: "Mo forecast detail",
+        msg: "No forecast found for this coordinates",
       };
 
     const data = await fetch(forecast).then((res) => res.json());

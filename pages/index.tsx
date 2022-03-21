@@ -12,8 +12,7 @@ import { getForecast } from "../src/services/getForecast";
 
 type JSONresponse = {
   status?: number;
-  title?: string;
-  detail?: string;
+  msg?: string;
 };
 
 type Forecast = {
@@ -74,7 +73,6 @@ const Home: NextPage = () => {
             placeholder="number street city state"
           />
           <Button onClick={handleClick} disabled={!address || isLoading}>
-            {/* TODO: import as icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -87,20 +85,15 @@ const Home: NextPage = () => {
           </Button>
         </Search>
 
-        {error && (
-          <>
-            <Text type="error">{error.title}</Text>
-            <Text type="error">{error.detail}</Text>
-          </>
+        {error.msg && (
+          <Text type="error" as="div">
+            {error.msg}
+          </Text>
         )}
 
         <Text css={{ marginBottom: "$6", display: "block" }}>
           Try
-          <Button
-            inline
-            onClick={handleAddressTest}
-            disabled={!address || isLoading}
-          >
+          <Button inline onClick={handleAddressTest}>
             {FIXED_ADDRESS}
           </Button>
         </Text>
