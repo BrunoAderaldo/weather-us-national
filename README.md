@@ -1,6 +1,6 @@
 # Weather US National App
 
-Connects to public geocoding and weather REST APIs providing a specified address for display the 7-day forecast.
+Connects to public geocoding and weather REST APIs by providing a specified address to display the 7-day forecast.
 
 ## US Census Geocoding API
 
